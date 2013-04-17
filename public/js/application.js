@@ -22,3 +22,14 @@ List.prototype = {
     }
   }
 }
+
+$(document).ready(function(){
+  $.ajax({
+    url: '/todos/get.json',
+    dataType: 'json',
+  }).done(function(response){
+    $.each(response, function(index, value){
+      console.log(index + ": " + value[0]);
+    }); 
+  });
+});
